@@ -52,6 +52,8 @@ public class Main {
                 locadora.exibeJogosLocadora();
             } else if (opcaoSelecionada == 6) {
                 locadora.exibeFilmesLocadora();
+            } else if (opcaoSelecionada == 7) {
+                locadora.devolverJogo(ler);
             }
         }
     }
