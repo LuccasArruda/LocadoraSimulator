@@ -188,22 +188,25 @@ public class Locadora {
         String nomeJogo, console, nomeDistribuidora, cadastroDetalhado;
         float precoJogo;
         int codigoFilme;
+        Scanner Jorge = new Scanner(System.in);
 
         codigoFilme = getJogosLocadora().size();
         System.out.println("Legal! Vamos aumentar o nosso arsenal de jogos.");
         System.out.println(">  Qual é o nome do jogo que você quer adicionar? ");
-        nomeJogo = ler.next();
+
+        nomeJogo = Jorge.nextLine();
+
         System.out.println("BACANA! Esse jogo é um dos mehores que eu já vi!");
         System.out.println(">  Agora, quanto ele vai custar?");
-        precoJogo = ler.nextFloat();
+        precoJogo = Jorge.nextFloat();
+        Jorge.reset();
         System.out.println("Haha, vamos ganhar muito dinheiro com esse jogo!");
         System.out.println("Pronto! o Cadastro básico do jogo " + nomeJogo + " foi realizado!");
 
-        System.out.println("> Deseja adicionar mais informações do jogo? [S] ou [N]");
-        cadastroDetalhado = ler.next();
+        cadastroDetalhado = Jorge.nextLine();
         while (!Objects.equals(cadastroDetalhado, "S") && !Objects.equals(cadastroDetalhado, "N")){
             System.out.println("> Deseja adicionar mais informações do jogo? [S] ou [N]");
-            cadastroDetalhado = ler.next();
+            cadastroDetalhado = Jorge.nextLine();
         }
 
         if (Objects.equals(cadastroDetalhado, "N")){
@@ -215,12 +218,11 @@ public class Locadora {
 
         System.out.println("Certo, vamos continuar!");
         System.out.println(">  Qual é o console desse jogo?");
-        console = ler.next();
+        console = Jorge.nextLine();
 
         System.out.println("E pra fechar de vez...");
         System.out.println(">  Qual é a distribuidora desse jogo?");
-        nomeDistribuidora = ler.next();
-
+        nomeDistribuidora = Jorge.nextLine();
         novoJogo = new Jogo(nomeJogo, precoJogo, codigoFilme++, console, nomeDistribuidora);
         this.jogosLocadora.add(novoJogo);
         System.out.println("PRONTO! Agora temos o jogo " + nomeJogo + " em nossa biblioteca");
