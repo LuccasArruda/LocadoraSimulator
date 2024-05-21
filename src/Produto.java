@@ -1,6 +1,6 @@
 public class Produto {
     private String nome;
-    private float preco;
+    private double preco;
     private Boolean disponivel;
 
     public Produto(String nome, float preco){
@@ -25,7 +25,7 @@ public class Produto {
         return nome;
     }
 
-    public float getPreco() {
+    public double getPreco() {
         return preco;
     }
 

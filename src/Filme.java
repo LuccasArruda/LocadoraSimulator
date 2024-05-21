@@ -8,6 +8,10 @@ public class Filme extends Produto{
         setAtorPrincipal(atorPrincipal);
     }
 
+    public Filme(String nome, float preco){
+        super(nome, preco);
+    }
+
     public void setDiretor(String diretor) {
         this.diretor = diretor;
     }
