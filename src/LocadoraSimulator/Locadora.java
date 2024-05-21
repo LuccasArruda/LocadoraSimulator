@@ -11,6 +11,7 @@ public class Locadora {
     private ArrayList<Filme> filmesLocadora;
     private ArrayList<Jogo> jogosAlugados;
     private ArrayList<Filme> filmesAlugados;
+    private double lucro;
 
 
     public Locadora(String nome){
@@ -70,26 +71,34 @@ public class Locadora {
         this.filmesAlugados = filmesAlugados;
     }
 
+    public void setLucro(double lucro) {
+        this.lucro = lucro;
+    }
+
+    public void adicionarLucro(double lucro){
+        this.lucro += lucro;
+    }
+
     public void alugarFilme(Scanner ler){
         int I, codigoFilme;
+        Filme filmeEcontrado;
 
         System.out.println("Opa! Vamos alugar um filme para nosso primeiro cliente!");
         System.out.println(">  Qual o código do filme que o cliente escolheu?");
         codigoFilme = ler.nextInt();
 
-        for (I = 0; I < this.filmesLocadora.size(); I++){
-            if (this.filmesLocadora.get(I).getCodigo() == codigoFilme){
-
-                if (!this.filmesLocadora.get(I).getDisponivel()){
-                    System.out.println("O filme " + this.filmesLocadora.get(I).getNome() + " não está disponível!");
-                    return;
-                }
-
-                this.filmesLocadora.get(I).alugarProduto();
-                System.out.println("O filme " + this.filmesLocadora.get(I).getNome() + " foi alugado!");
-                this.filmesAlugados.add(this.filmesLocadora.get(I));
+        filmeEcontrado = procuraFilme(codigoFilme, this.filmesLocadora);
+        if (filmeEcontrado != null){
+            if (!filmeEcontrado.getDisponivel()){
+                System.out.println("O filme " + filmeEcontrado.getNome() + " está indisponível para locação!");
                 return;
             }
+
+            filmeEcontrado.alugarProduto();
+            System.out.println("O filme " + filmeEcontrado.getNome() + " foi alugado!");
+            this.filmesAlugados.add(filmeEcontrado);
+            adicionarLucro(filmeEcontrado.getPreco());
+            return;
         }
 
         System.out.println("Não consegui encontrar o filme!");
@@ -113,6 +122,7 @@ public class Locadora {
             jogoProcurado.alugarProduto();
             System.out.println("O jogo " + jogoProcurado.getNome() + " foi alugado!");
             this.jogosAlugados.add(jogoProcurado);
+            adicionarLucro(jogoProcurado.getPreco());
             return;
         }
 
@@ -259,6 +269,12 @@ public class Locadora {
         System.out.println("PRONTO! Agora temos o filme " + nomeFilme + " em nossa biblioteca");
     }
 
+    public void visualizarLucro(){
+        System.out.println("OLHA SÓ! você já lucrou");
+        System.out.println("R$ " + getLucro());
+        System.out.println("Mandou bem :)");
+    }
+
     public String getNome() {
         return nome;
     }
@@ -269,6 +285,10 @@ public class Locadora {
 
     public ArrayList<Filme> getFilmesLocadora() {
         return filmesLocadora;
+    }
+
+    public double getLucro() {
+        return lucro;
     }
 
     public ArrayList<Jogo> getJogosAlugados() {

@@ -38,6 +38,7 @@ public class Main {
             System.out.println("[6] - Exibir todos os filmes da locadora");
             System.out.println("[7] - Devolver jogo");
             System.out.println("[8] - Devolver filme");
+            System.out.println("[9] - Visualizar Lucro");
 
             opcaoSelecionada = ler.nextInt();
             if (opcaoSelecionada == 1){
@@ -54,6 +55,10 @@ public class Main {
                 locadora.exibeFilmesLocadora();
             } else if (opcaoSelecionada == 7) {
                 locadora.devolverJogo(ler);
+            } else if (opcaoSelecionada == 8) {
+                locadora.devolverFilme(ler);
+            } else if (opcaoSelecionada == 9) {
+                locadora.visualizarLucro();
             }
         }
     }
