@@ -184,30 +184,30 @@ public class Locadora {
         filmeDevolvido.devolverProduto();
     }
 
-    public void adicionarJogo(Scanner ler){
+    public void adicionarJogo(){
         Jogo novoJogo;
         String nomeJogo, console, nomeDistribuidora, cadastroDetalhado;
         float precoJogo;
         int codigoFilme;
-        Scanner Jorge = new Scanner(System.in);
+        Scanner ler = new Scanner(System.in);
 
         codigoFilme = getJogosLocadora().size();
         System.out.println("Legal! Vamos aumentar o nosso arsenal de jogos.");
         System.out.println(">  Qual é o nome do jogo que você quer adicionar? ");
-
-        nomeJogo = Jorge.nextLine();
+        nomeJogo = ler.nextLine();
 
         System.out.println("BACANA! Esse jogo é um dos mehores que eu já vi!");
         System.out.println(">  Agora, quanto ele vai custar?");
-        precoJogo = Jorge.nextFloat();
-        Jorge.reset();
+        precoJogo = ler.nextFloat();
+        ler.reset();
+
         System.out.println("Haha, vamos ganhar muito dinheiro com esse jogo!");
         System.out.println("Pronto! o Cadastro básico do jogo " + nomeJogo + " foi realizado!");
 
-        cadastroDetalhado = Jorge.nextLine();
+        cadastroDetalhado = ler.nextLine();
         while (!Objects.equals(cadastroDetalhado, "S") && !Objects.equals(cadastroDetalhado, "N")){
             System.out.println("> Deseja adicionar mais informações do jogo? [S] ou [N]");
-            cadastroDetalhado = Jorge.nextLine();
+            cadastroDetalhado = ler.nextLine();
         }
 
         if (Objects.equals(cadastroDetalhado, "N")){
@@ -219,29 +219,33 @@ public class Locadora {
 
         System.out.println("Certo, vamos continuar!");
         System.out.println(">  Qual é o console desse jogo?");
-        console = Jorge.nextLine();
+        console = ler.nextLine();
 
         System.out.println("E pra fechar de vez...");
         System.out.println(">  Qual é a distribuidora desse jogo?");
-        nomeDistribuidora = Jorge.nextLine();
+        nomeDistribuidora = ler.nextLine();
         novoJogo = new Jogo(nomeJogo, precoJogo, codigoFilme++, console, nomeDistribuidora);
         this.jogosLocadora.add(novoJogo);
         System.out.println("PRONTO! Agora temos o jogo " + nomeJogo + " em nossa biblioteca");
     }
 
-    public void adicionarFilme(Scanner ler){
+    public void adicionarFilme(){
         Filme novoFilme;
         String nomeFilme, nomeDiretor, nomeAtorPrincipal, cadastroDetalhado;
         float precoFilme;
         int codigoFilme;
+        Scanner ler = new Scanner(System.in);
 
         codigoFilme = getFilmesLocadora().size();
         System.out.println("Legal! Vamos aumentar o nosso arsenal de filmes.");
         System.out.println(">  Qual é o nome do filme que você quer adicionar? ");
-        nomeFilme = ler.next();
+        nomeFilme = ler.nextLine();
+
         System.out.println("BACANA! Esse filme é um dos mehores que eu já vi!");
         System.out.println(">  Agora, quanto ele vai custar?");
         precoFilme = ler.nextFloat();
+        ler.reset();
+
         System.out.println("Haha, vamos ganhar muito dinheiro com esse filme!");
         System.out.println("Pronto! o Cadastro básico do filme " + nomeFilme + " foi realizado!");
 

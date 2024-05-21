@@ -42,9 +42,9 @@ public class Main {
 
             opcaoSelecionada = ler.nextInt();
             if (opcaoSelecionada == 1){
-                locadora.adicionarJogo(ler);
+                locadora.adicionarJogo();
             } else if(opcaoSelecionada == 2){
-                locadora.adicionarFilme(ler);
+                locadora.adicionarFilme();
             } else if(opcaoSelecionada == 3){
                 locadora.alugarFilme(ler);
             } else if (opcaoSelecionada == 4){
