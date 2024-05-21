@@ -37,6 +37,8 @@ public class Main {
             opcaoSelecionada = ler.nextInt();
             if (opcaoSelecionada == 1){
                 locadora.adicionarFilme(ler);
+            } else if(opcaoSelecionada == 2){
+                locadora.adicionarJogo(ler);
             }
         }
     }

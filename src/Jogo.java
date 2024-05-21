@@ -2,10 +2,14 @@ public class Jogo extends Produto implements IAlugavel{
     private String Console;
     private String Distribuidora;
 
-    public Jogo(String nome, float preco, String console,String distribuidora){
+    public Jogo(String nome, float preco, String console, String distribuidora){
         super(nome, preco);
         setConsole(console);
         setDistribuidora(distribuidora);
+    }
+
+    public Jogo(String nome, float preco){
+        super(nome, preco);
     }
 
     public void setConsole(String console) {
