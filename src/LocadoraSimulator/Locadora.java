@@ -2,7 +2,6 @@ package LocadoraSimulator;
 
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Locadora {
@@ -164,6 +163,7 @@ public class Locadora {
         }
 
         this.jogosAlugados.remove(jogoDevolvido);
+        jogoDevolvido.devolverProduto();
     }
 
     public void devolverFilme(Scanner ler){
@@ -181,6 +181,7 @@ public class Locadora {
         }
 
         this.filmesAlugados.remove(filmeDevolvido);
+        filmeDevolvido.devolverProduto();
     }
 
     public void adicionarJogo(Scanner ler){
