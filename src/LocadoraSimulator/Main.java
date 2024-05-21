@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+package LocadoraSimulator;
+
 import java.util.Scanner;
 
 public class Main {
@@ -22,7 +23,7 @@ public class Main {
 
         System.out.println("Dê um nome para sua nova locadora!");
         ler = new Scanner(System.in);
-        nomeLocadora = ler.next();
+        nomeLocadora = ler.nextLine();
         locadora = new Locadora(nomeLocadora);
 
         while (true){
@@ -31,14 +32,26 @@ public class Main {
             System.out.println("============================================");
             System.out.println("[1] - Adicionar um novo jogo");
             System.out.println("[2] - Adicionar um novo filme");
-            System.out.println("[3] - Alugar um jogo");
-            System.out.println("[4] - Alugar um filme");
+            System.out.println("[3] - Alugar um filme");
+            System.out.println("[4] - Alugar um jogo");
+            System.out.println("[5] - Exibir todos os jogos da locadora");
+            System.out.println("[6] - Exibir todos os filmes da locadora");
+            System.out.println("[7] - Devolver jogo");
+            System.out.println("[8] - Devolver filme");
 
             opcaoSelecionada = ler.nextInt();
             if (opcaoSelecionada == 1){
-                locadora.adicionarFilme(ler);
-            } else if(opcaoSelecionada == 2){
                 locadora.adicionarJogo(ler);
+            } else if(opcaoSelecionada == 2){
+                locadora.adicionarFilme(ler);
+            } else if(opcaoSelecionada == 3){
+                locadora.alugarFilme(ler);
+            } else if (opcaoSelecionada == 4){
+                locadora.alugarJogo(ler);
+            } else if (opcaoSelecionada == 5) {
+                locadora.exibeJogosLocadora();
+            } else if (opcaoSelecionada == 6) {
+                locadora.exibeFilmesLocadora();
             }
         }
     }

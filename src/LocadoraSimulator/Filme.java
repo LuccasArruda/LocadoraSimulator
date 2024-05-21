@@ -1,15 +1,17 @@
-public class Filme extends Produto{
+package LocadoraSimulator;
+
+public class Filme extends Produto implements IAlugavel{
     private String diretor;
     private String atorPrincipal;
 
-    public Filme(String nome, float preco, String diretor, String atorPrincipal){
-        super(nome, preco);
+    public Filme(String nome, float preco, int codigo, String diretor, String atorPrincipal){
+        super(nome, preco, codigo);
         setDiretor(diretor);
         setAtorPrincipal(atorPrincipal);
     }
 
-    public Filme(String nome, float preco){
-        super(nome, preco);
+    public Filme(String nome, float preco, int codigo){
+        super(nome, preco, codigo);
     }
 
     public void setDiretor(String diretor) {
@@ -26,6 +28,14 @@ public class Filme extends Produto{
 
     public String getAtorPrincipal() {
         return atorPrincipal;
+    }
+
+    @Override
+    public void alugarProduto() { super.setDisponivel(false);}
+
+    @Override
+    public void devolverProduto() {
+        super.setDisponivel(true);
     }
 
     @Override

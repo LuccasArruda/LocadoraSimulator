@@ -1,15 +1,19 @@
-public class Jogo extends Produto implements IAlugavel{
+package LocadoraSimulator;
+
+import LocadoraSimulator.IAlugavel;
+
+public class Jogo extends Produto implements IAlugavel {
     private String Console;
     private String Distribuidora;
 
-    public Jogo(String nome, float preco, String console, String distribuidora){
-        super(nome, preco);
+    public Jogo(String nome, float preco, int codigo, String console, String distribuidora){
+        super(nome, preco, codigo);
         setConsole(console);
         setDistribuidora(distribuidora);
     }
 
-    public Jogo(String nome, float preco){
-        super(nome, preco);
+    public Jogo(String nome, float preco, int codigo){
+        super(nome, preco, codigo);
     }
 
     public void setConsole(String console) {
